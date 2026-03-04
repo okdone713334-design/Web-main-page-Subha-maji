@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBHA Quiz Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* আকাশী নীল ব্যাকগ্রাউন্ড */
+            background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Owner Bar */
+        .owner-bar {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+            color: #B8860B;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .header {
+            margin-top: 50px;
+            text-align: center;
+            color: #005662;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 4px rgba(255,255,255,0.5);
+        }
+
+        .categories {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* Blur Effect বাটন */
+        .card {
+            background: rgba(255, 255, 255, 0.25); /* সাদাটে ভাব */
+            backdrop-filter: blur(15px); /* ব্লার এফেক্ট */
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            text-decoration: none;
+            color: #004d40;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.45);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+        }
+
+        /* আকাশের অনেকগুলি পাখি এবং অনেক মেঘের অ্যানিমেশন */
+        .sky-deco {
+            position: absolute;
+            top: 15%;
+            left: 10%;
+            font-size: 2rem;
+            opacity: 0.6;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="owner-bar">
+        Owner - Subha Maji
+    </div>
+
+    <div class="header">
+        <h1>My Quiz Hub for you</h1>
+        <p>আপনার প্রিয় বিষয়টি নির্বাচন করুন</p>
+    </div>
+
+    <div class="categories">
+        <a href="Go Bengali/" class="card">বাংলা</a>
+        <a href="Go English" class="card">ইংরেজি</a>
+        <a href="Go Philosophy" class="card">দর্শন</a>
+        <a href="Go Geography" class="card">ভূগোল</a>
+        <a href="Go Political Science" class="card">রাষ্ট্রবিজ্ঞান</a>
+        <a href="Go History" class="card">ইতিহাস</a>
+        <a href="Go Oterr" class="card">🎓আমার অন্যান্য Website 🎓
+        </a>
+    </div>
+
+    <div class="sky-deco">☁️</div>
+    <div style="position:absolute; top:20%; right:15%; opacity:0.6; z-index:-1;">🕊️</div>
+
+</body>
+</html>
