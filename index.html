@@ -12,108 +12,354 @@
         }
 
         body {
-            /* আকাশী নীল ব্যাকগ্রাউন্ড */
-            background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 100%);
+            /* আকাশী নীল ব্যাকগ্রাউন্ড - আরও ডায়নামিক গ্রেডিয়েন্ট */
+            background: linear-gradient(145deg, #87CEEB 0%, #B0E0E6 50%, #E0F7FA 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-y: auto;
+            position: relative;
         }
 
-        /* Owner Bar */
+        /* অ্যানিমেটেড ক্লাউড ব্যাকগ্রাউন্ড */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M20 40 Q30 30 40 40 T60 35 T80 40 Q90 45 85 55 T70 65 T50 70 T30 65 T15 55 Q10 45 20 40"/><path fill="white" d="M70 20 Q80 15 90 20 T95 35 Q98 45 90 50 T75 48 T65 42 Q60 35 70 20"/></svg>');
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: floatClouds 60s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes floatClouds {
+            from { background-position: 0 0; }
+            to { background-position: 200px 200px; }
+        }
+
+        /* Owner Bar - আরও গ্লাসি ইফেক্ট */
         .owner-bar {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             width: 100%;
             text-align: center;
-            padding: 10px 0;
+            padding: 12px 0;
             font-weight: bold;
-            color: #B8860B;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            letter-spacing: 1px;
+            color: #8B4513;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .header {
-            margin-top: 50px;
+            margin-top: 40px;
             text-align: center;
-            color: #005662;
+            color: #004d66;
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
-            text-shadow: 1px 1px 4px rgba(255,255,255,0.5);
+            text-shadow: 3px 3px 8px rgba(255,255,255,0.7);
+            background: linear-gradient(45deg, #006064, #004d40);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #01579b;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
         .categories {
             margin-top: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Blur Effect বাটন */
+        /* Blur Effect বাটন - আরও আকর্ষণীয় */
         .card {
-            background: rgba(255, 255, 255, 0.25); /* সাদাটে ভাব */
-            backdrop-filter: blur(15px); /* ব্লার এফেক্ট */
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 15px;
-            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 18px 25px;
             text-decoration: none;
             color: #004d40;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            text-align: left;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* গ্রেডিয়েন্ট ওভারলে */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.6s;
+            z-index: 1;
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         .card:hover {
-            background: rgba(255, 255, 255, 0.45);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 80, 100, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
         }
 
-        /* আকাশের অনেকগুলি পাখি এবং অনেক মেঘের অ্যানিমেশন */
-        .sky-deco {
-            position: absolute;
-            top: 15%;
-            left: 10%;
-            font-size: 2rem;
-            opacity: 0.6;
-            z-index: -1;
+        /* আইকনের স্টাইল */
+        .card-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+            transition: 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* টেক্সট কন্টেইনার */
+        .card-text {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #003d33;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: #006064;
+            opacity: 0.8;
+            font-weight: normal;
+            margin-top: 3px;
+        }
+
+        /* রাইট অ্যারো */
+        .card-arrow {
+            font-size: 1.5rem;
+            opacity: 0.5;
+            transition: 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(5px);
+            color: #004d40;
+        }
+
+        /* ডেকোরেশন এলিমেন্টস */
+        .floating-bird {
+            position: fixed;
+            font-size: 2.5rem;
+            opacity: 0.4;
+            z-index: 1;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .bird-1 { top: 15%; left: 5%; animation-delay: 0s; }
+        .bird-2 { top: 25%; right: 8%; animation-delay: 2s; }
+        .bird-3 { bottom: 20%; left: 10%; animation-delay: 4s; }
+        .bird-4 { bottom: 30%; right: 12%; animation-delay: 1s; }
+
+        .floating-cloud {
+            position: fixed;
+            font-size: 4rem;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+            animation: floatCloud 15s linear infinite;
+        }
+
+        @keyframes floatCloud {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        .cloud-1 { top: 10%; animation-duration: 25s; }
+        .cloud-2 { top: 40%; animation-duration: 35s; animation-delay: -10s; }
+        .cloud-3 { top: 70%; animation-duration: 30s; animation-delay: -5s; }
+
+        /* ফুটার */
+        .footer-note {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #01579b;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.4);
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
+    <!-- ফ্লোটিং ডেকোরেশন এলিমেন্টস -->
+    <div class="floating-bird bird-1">🕊️</div>
+    <div class="floating-bird bird-2">🦜</div>
+    <div class="floating-bird bird-3">🦢</div>
+    <div class="floating-bird bird-4">🐦</div>
+
+    <div class="floating-cloud cloud-1">☁️</div>
+    <div class="floating-cloud cloud-2">☁️☁️</div>
+    <div class="floating-cloud cloud-3">☁️</div>
+
     <div class="owner-bar">
-        Owner - Subha Maji
+        ✦ Owner - Subha Maji ✦
     </div>
 
     <div class="header">
-        <h1>My Quiz Hub for you</h1>
-        <p>আপনার প্রিয় বিষয়টি নির্বাচন করুন</p>
+        <h1>📚 My Quiz Hub for you</h1>
+        <p>আপনার প্রিয় বিষয়টি নির্বাচন করুন ✨</p>
     </div>
 
     <div class="categories">
-        <a href="Go Bengali/" class="card">বাংলা</a>
-        <a href="Go English" class="card">ইংরেজি</a>
-        <a href="Go Philosophy" class="card">দর্শন</a>
-        <a href="Go Geography" class="card">ভূগোল</a>
-        <a href="Go Political Science" class="card">রাষ্ট্রবিজ্ঞান</a>
-        <a href="Go History" class="card">ইতিহাস</a>
-        <a href="Go Oterr" class="card">🎓আমার অন্যান্য Website 🎓</a>
+        <!-- বাংলা - বিষ্ঠু মাছের ইমোজি -->
+        <a href="Go Bengali/" class="card">
+            <span class="card-icon">📖</span>
+            <span class="card-text">
+                <span class="card-title">বাংলা</span>
+                <span class="card-subtitle">সাহিত্য ও সংস্কৃতি</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
+
+        <!-- ইংরেজি - বি বস ইমোজি -->
+        <a href="Go English" class="card">
+            <span class="card-icon">📕</span>
+            <span class="card-text">
+                <span class="card-title">ইংরেজি</span>
+                <span class="card-subtitle">English Literature</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
+
+        <!-- দর্শন - চিন্তাশীল ইমোজি -->
+        <a href="Go Philosophy" class="card">
+            <span class="card-icon">🤔</span>
+            <span class="card-text">
+                <span class="card-title">দর্শন</span>
+                <span class="card-subtitle">Philosphy & Thought</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
+
+        <!-- ভূগোল - পৃথিবী ইমোজি -->
+        <a href="Go Geography" class="card">
+            <span class="card-icon">🌍</span>
+            <span class="card-text">
+                <span class="card-title">ভূগোল</span>
+                <span class="card-subtitle">Geography & Environment</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
+
+        <!-- রাষ্ট্রবিজ্ঞান - সংসদ ইমোজি -->
+        <a href="Go Political Science" class="card">
+            <span class="card-icon">🏛️</span>
+            <span class="card-text">
+                <span class="card-title">রাষ্ট্রবিজ্ঞান</span>
+                <span class="card-subtitle">Political Science</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
+
+        <!-- ইতিহাস - সময় ইমোজি -->
+        <a href="Go History" class="card">
+            <span class="card-icon">🦴</span>
+            <span class="card-text">
+                <span class="card-title">ইতিহাস</span>
+                <span class="card-subtitle">History & Heritage</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
+
+        <!-- অন্যান্য ওয়েবসাইট - স্পেশাল ইমোজি -->
+        <a href="Go Oterr" class="card">
+            <span class="card-icon">🎓✨</span>
+            <span class="card-text">
+                <span class="card-title">আমার অন্যান্য Website</span>
+                <span class="card-subtitle">More Learning Resources</span>
+            </span>
+            <span class="card-arrow">→</span>
+        </a>
     </div>
 
-    <div class="sky-deco">☁️</div>
-    <div style="position:absolute; top:20%; right:15%; opacity:0.6; z-index:-1;">🕊️</div>
+    <div class="footer-note">
+        ✦ কুইজ খেলুন, জ্ঞান বাড়ান ✦
+    </div>
 
 </body>
 </html>
